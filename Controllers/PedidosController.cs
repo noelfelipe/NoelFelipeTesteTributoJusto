@@ -41,8 +41,10 @@ namespace NoelFelipe.Controllers
         public ActionResult Create()
         {
             ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "Nome");
+            ViewBag.IdProduto = new SelectList(db.Produtoes, "IdProduto", "Nome");
             return View();
         }
+
 
         // POST: Pedidos/Create
         // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
@@ -75,6 +77,7 @@ namespace NoelFelipe.Controllers
                 return HttpNotFound();
             }
             ViewBag.IdCliente = new SelectList(db.Clientes, "IdCliente", "Nome", pedido.IdCliente);
+            ViewBag.IdProduto = new SelectList(db.Produtoes, "IdProduto", "Nome", pedido.IdProduto);
             return View(pedido);
         }
 
